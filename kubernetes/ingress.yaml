@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+ name: eliasingress
+spec:
+ rules:
+  - host: s280048.sandbox.crownlabs.polito.it
+    http:
+     paths:
+     - path: /
+       pathType: Prefix
+       backend:
+        service:
+         name: eliasservice
+         port:
+          number: 80

@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+ name: eliasservice
+spec:
+ selector:
+  app: eliak8s
+ ports:
+ - protocol: TCP
+   port: 80
+   targetPort: 80
+ type: ClusterIP

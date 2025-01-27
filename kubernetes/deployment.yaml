@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: eliassite
+spec:
+ selector:
+  matchLabels:
+   app: eliak8s
+ replicas: 2
+ template:
+  metadata:
+   labels:
+    app: eliak8s
+  spec:
+   containers:
+   - name: eliadocker
+     image: elia96/eliak8s:latest
+     ports:
+     - name: http
+       containerPort: 80
+     resources:
+      requests:
+       memory: "145Mi"
+       cpu: "500m"
+      limits:
+       memory: "500Mi"
+       cpu: "1000m"
